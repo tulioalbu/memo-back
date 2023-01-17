@@ -1,0 +1,14 @@
+{
+  "configurations": [
+    {
+      "type": "java",
+      "name": "Spring Boot-MemoApplication<memo>",
+      "request": "launch",
+      "cwd": "${workspaceFolder}",
+      "mainClass": "com.testeblue.memo.MemoApplication",
+      "projectName": "memo",
+      "args": "",
+      "envFile": "${workspaceFolder}/.env"
+    }
+  ]
+}

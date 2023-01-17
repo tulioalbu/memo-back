@@ -1,4 +1,4 @@
-package com.testeblue.memo.Repository;
+package com.testeblue.memo.repository;
 
 import java.util.Optional;
 

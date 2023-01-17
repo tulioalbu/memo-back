@@ -5,7 +5,7 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.testeblue.memo.Repository.ContactRepository;
+import com.testeblue.memo.repository.ContactRepository;
 import com.testeblue.memo.model.Contact;
 
 import jakarta.transaction.Transactional;
