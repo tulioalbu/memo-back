@@ -9,27 +9,31 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import lombok.AllArgsConstructor;
 import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
 @Data
-@Table(name="TB_CONTACT")
-public class Contact implements Serializable{
-  
+@Table(name = "TB_CONTACT")
+@AllArgsConstructor
+@NoArgsConstructor
+public class Contact implements Serializable {
+
   @Id
-  @GeneratedValue (strategy = GenerationType.AUTO)
+  @GeneratedValue(strategy = GenerationType.AUTO)
   private Long idContact;
 
-  @Column(name = "name_contact")
-  private String nameContact;
+  @Column(name = "contact_name")
+  private String contactName;
 
-  @Column(name = "phone_contact")
-  private String phoneContact;
+  @Column(name = "contact_phone")
+  private String contactPhone;
 
-  @Column(name = "email_contact")
-  private String emailUser;
+  @Column(name = "contact_email")
+  private String contactEmail;
 
   @Column(nullable = false)
   private LocalDateTime registrationDate;
-  
+
 }

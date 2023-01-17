@@ -22,9 +22,6 @@ import java.time.ZoneId;
 import java.util.List;
 import java.util.Optional;
 
-
-
-
 @RestController
 @CrossOrigin(origins = "*", maxAge = 3600)
 @RequestMapping("/contacts")
@@ -37,11 +34,11 @@ public class ContactController {
     }
 
     @PostMapping
-    public ResponseEntity<Object> saveContact(@RequestBody @Valid ContactDto contactDto){
-        if(contactService.existsByNameContact(contactDto.getNameContact())){
+    public ResponseEntity<Object> saveContact(@RequestBody ContactDto contactDto) {
+        if (contactService.existsByContactName(contactDto.getContactName())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Contact already registered.");
         }
-        if(contactService.existsByEmailContact(contactDto.getEmailContact())){
+        if (contactService.existsByContactEmail(contactDto.getContactEmail())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: E-mail already registered.");
         }
 
@@ -52,23 +49,23 @@ public class ContactController {
     }
 
     @GetMapping
-    public ResponseEntity<List<Contact>> getAllContacts(){
+    public ResponseEntity<List<Contact>> getAllContacts() {
         return ResponseEntity.status(HttpStatus.OK).body(contactService.findAll());
     }
-    
+
     @GetMapping("/{id}")
-    public ResponseEntity<Object> getOneContact(@PathVariable(value = "id") Long idContact){
-        Optional<Contact> contactOptional = contactService.findById(idContact);
-        if (!contactOptional.isPresent()){
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contact not found.");
+    public ResponseEntity<Object> getOneContact(@PathVariable(value = "id") Long contactId) {
+        Optional<Contact> contactOptional = contactService.findById(contactId);
+        if (!contactOptional.isPresent()) {
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contact not found");
         }
         return ResponseEntity.status(HttpStatus.OK).body(contactOptional.get());
     }
 
     @DeleteMapping("/{id}")
-    public ResponseEntity<Object> deleteContact(@PathVariable(value = "id") Long idContact){
-        Optional<Contact> contactOptional = contactService.findById(idContact);
-        if(!contactOptional.isPresent()){
+    public ResponseEntity<Object> deleteContact(@PathVariable(value = "id") Long contactId) {
+        Optional<Contact> contactOptional = contactService.findById(contactId);
+        if (!contactOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contact not found.");
         }
         contactService.delete(contactOptional.get());
@@ -76,19 +73,18 @@ public class ContactController {
     }
 
     @PutMapping("/{id}")
-    public ResponseEntity<Object> updateContact(@PathVariable(value = "id") Long idContact, @RequestBody @Valid ContactDto contactDto){
+    public ResponseEntity<Object> updateContact(@PathVariable(value = "id") Long idContact,
+            @RequestBody ContactDto contactDto) {
         Optional<Contact> contactOptional = contactService.findById(idContact);
-        if(!contactOptional.isPresent()){
+        if (!contactOptional.isPresent()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contact not found.");
         }
         var contact = contactOptional.get();
-        contact.setNameContact(contactDto.getNameContact());
-        contact.setEmailContact(contactDto.getEmailContact());
+        contact.setContactName(contactDto.getContactName());
+        contact.setContactEmail(contactDto.getContactEmail());
 
         return ResponseEntity.status(HttpStatus.OK).body(contactService.save(contact));
 
     }
 
 }
-  
-

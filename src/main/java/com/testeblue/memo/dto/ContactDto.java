@@ -2,16 +2,14 @@ package com.testeblue.memo.dto;
 
 import lombok.Data;
 
-
-
 @Data
 public class ContactDto {
 
-    @NotBlank
-    private String nameContact;
 
-    @NotBlank
-    @Email
-    private String emailContact;
+    private String contactName;
+
+    private String contactEmail;
+
+    private String contactPhone;
 
 }

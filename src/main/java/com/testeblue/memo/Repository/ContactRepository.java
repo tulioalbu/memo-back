@@ -8,9 +8,9 @@ import com.testeblue.memo.model.Contact;
 
 public interface ContactRepository extends JpaRepository<Contact, Long> {
     
-  Optional<Contact> findByNameContact(String nameContact);
+  Optional<Contact> findByContactName(String contactName);
 
-  boolean existsByNameContact(String nameContact);
-  boolean existsByEmailContact(String emailContact);
+  boolean existsByContactName(String contactName);
+  boolean existsByContactEmail(String contactEmail);
 
 }

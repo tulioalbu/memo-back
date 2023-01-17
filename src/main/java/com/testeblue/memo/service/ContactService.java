@@ -21,32 +21,32 @@ public class ContactService {
 
     @Transactional
     public Contact save(Contact contact) {
-        return contactRepository.save(contact) ;
+        return contactRepository.save(contact);
     }
 
-    public boolean existsByNameContact(String nameContact) {
-        return contactRepository.existsByNameContact(nameContact);
+    public boolean existsByContactName(String contactName) {
+        return contactRepository.existsByContactName(contactName);
     }
 
-    public boolean existsByEmailContact(String emailContact) {
-        return contactRepository.existsByEmailContact(emailContact);
+    public boolean existsByContactEmail(String contactEmail) {
+        return contactRepository.existsByContactEmail(contactEmail);
     }
 
     public List<Contact> findAll() {
         return contactRepository.findAll();
     }
 
-    public Optional<Contact> findByNameContact(String nameContact) {
-        return contactRepository.findByNameContact(nameContact);
+    public Optional<Contact> findByContactName(String contactName) {
+        return contactRepository.findByContactName(contactName);
     }
 
-    public Optional<Contact> findById(Long idContact) {
-        return contactRepository.findById(idContact);
+    public Optional<Contact> findById(Long contactId) {
+        return contactRepository.findById(contactId);
     }
 
     @Transactional
     public void delete(Contact contact) {
-         contactRepository.delete(contact);
+        contactRepository.delete(contact);
     }
 
 }
