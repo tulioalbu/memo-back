@@ -16,8 +16,6 @@ import lombok.NoArgsConstructor;
 @Entity
 @Data
 @Table(name = "TB_CONTACT")
-@AllArgsConstructor
-@NoArgsConstructor
 public class Contact implements Serializable {
 
   @Id

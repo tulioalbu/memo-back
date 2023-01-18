@@ -41,6 +41,9 @@ public class ContactController {
         if (contactService.existsByContactEmail(contactDto.getContactEmail())) {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: E-mail already registered.");
         }
+        if (contactService.existsByContactPhone(contactDto.getContactPhone())) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Phone already registered.");
+        }
 
         var contact = new Contact();
         BeanUtils.copyProperties(contactDto, contact);

@@ -12,5 +12,6 @@ public interface ContactRepository extends JpaRepository<Contact, Long> {
 
   boolean existsByContactName(String contactName);
   boolean existsByContactEmail(String contactEmail);
+  boolean existsByContactPhone(String contactPhone);
 
 }
