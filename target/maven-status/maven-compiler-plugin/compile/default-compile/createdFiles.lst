@@ -1,11 +1,7 @@
-com/.DS_Store
 com/testeblue/memo/model/Contact.class
 com/testeblue/memo/controller/ContactController.class
-com/testeblue/memo/.DS_Store
 com/testeblue/memo/SpringFoxConfig.class
 com/testeblue/memo/repository/ContactRepository.class
-com/testeblue/.DS_Store
 com/testeblue/memo/service/ContactService.class
-.DS_Store
 com/testeblue/memo/dto/ContactDto.class
 com/testeblue/memo/MemoApplication.class
