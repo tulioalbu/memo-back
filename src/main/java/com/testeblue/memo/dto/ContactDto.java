@@ -12,4 +12,6 @@ public class ContactDto {
 
     private String contactPhone;
 
+    private String contactAvatar;
+
 }

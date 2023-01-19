@@ -20,7 +20,7 @@ public class Contact implements Serializable {
 
   @Id
   @GeneratedValue(strategy = GenerationType.AUTO)
-  private Long idContact;
+  private Long contactId;
 
   @Column(name = "contact_name")
   private String contactName;
@@ -30,6 +30,9 @@ public class Contact implements Serializable {
 
   @Column(name = "contact_email")
   private String contactEmail;
+
+  @Column(name = "contact_avatar")
+  private String contactAvatar;
 
   @Column(nullable = false)
   private LocalDateTime registrationDate;
