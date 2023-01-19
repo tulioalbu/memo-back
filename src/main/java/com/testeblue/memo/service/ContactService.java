@@ -36,6 +36,10 @@ public class ContactService {
         return contactRepository.existsByContactPhone(contactPhone);
     }
 
+    public boolean existsByContactAvatar(String contactAvatar) {
+        return contactRepository.existsByContactAvatar(contactAvatar);
+    }
+
     public List<Contact> findAll() {
         return contactRepository.findAll();
     }
