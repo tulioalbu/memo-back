@@ -36,13 +36,13 @@ public class ContactController {
     @PostMapping
     public ResponseEntity<Object> saveContact(@RequestBody ContactDto contactDto) {
         if (contactService.existsByContactName(contactDto.getContactName())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Contact already registered.");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: Contato já registrado.");
         }
         if (contactService.existsByContactEmail(contactDto.getContactEmail())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: E-mail already registered.");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: E-mail já registrado.");
         }
         if (contactService.existsByContactPhone(contactDto.getContactPhone())) {
-            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflict: Phone already registered.");
+            return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: Telefone já registrado.");
         }
 
         var contact = new Contact();
@@ -60,7 +60,7 @@ public class ContactController {
     public ResponseEntity<Object> getOneContact(@PathVariable(value = "id") Long contactId) {
         Optional<Contact> contactOptional = contactService.findById(contactId);
         if (!contactOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contact not found");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contato não encontrado");
         }
         return ResponseEntity.status(HttpStatus.OK).body(contactOptional.get());
     }
@@ -69,10 +69,10 @@ public class ContactController {
     public ResponseEntity<Object> deleteContact(@PathVariable(value = "id") Long contactId) {
         Optional<Contact> contactOptional = contactService.findById(contactId);
         if (!contactOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contact not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contato não encontrado.");
         }
         contactService.delete(contactOptional.get());
-        return ResponseEntity.status(HttpStatus.OK).body("Contact deleted successfully.");
+        return ResponseEntity.status(HttpStatus.OK).body("Contato deletado com sucesso.");
     }
 
     @PutMapping("/{id}")
@@ -80,7 +80,7 @@ public class ContactController {
             @RequestBody ContactDto contactDto) {
         Optional<Contact> contactOptional = contactService.findById(idContact);
         if (!contactOptional.isPresent()) {
-            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contact not found.");
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contato não encontrado.");
         }
         var contact = contactOptional.get();
         contact.setContactName(contactDto.getContactName());
