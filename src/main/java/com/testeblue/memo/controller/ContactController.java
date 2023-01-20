@@ -85,6 +85,8 @@ public class ContactController {
         var contact = contactOptional.get();
         contact.setContactName(contactDto.getContactName());
         contact.setContactEmail(contactDto.getContactEmail());
+        contact.setContactPhone(contactDto.getContactPhone());
+        contact.setContactAvatar(contactDto.getContactAvatar());
 
         return ResponseEntity.status(HttpStatus.OK).body(contactService.save(contact));
 
