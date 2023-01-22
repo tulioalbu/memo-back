@@ -45,6 +45,7 @@ public class ContactController {
             return ResponseEntity.status(HttpStatus.CONFLICT).body("Conflito: Telefone já registrado.");
         }
 
+
         var contact = new Contact();
         BeanUtils.copyProperties(contactDto, contact);
         contact.setRegistrationDate(LocalDateTime.now(ZoneId.of("UTC")));
@@ -59,7 +60,7 @@ public class ContactController {
     @GetMapping("/{id}")
     public ResponseEntity<Object> getOneContact(@PathVariable(value = "id") Long contactId) {
         Optional<Contact> contactOptional = contactService.findById(contactId);
-        if (!contactOptional.isPresent()) {
+        if (contactOptional.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contato não encontrado");
         }
         return ResponseEntity.status(HttpStatus.OK).body(contactOptional.get());
@@ -68,7 +69,7 @@ public class ContactController {
     @DeleteMapping("/{id}")
     public ResponseEntity<Object> deleteContact(@PathVariable(value = "id") Long contactId) {
         Optional<Contact> contactOptional = contactService.findById(contactId);
-        if (!contactOptional.isPresent()) {
+        if (contactOptional.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contato não encontrado.");
         }
         contactService.delete(contactOptional.get());
@@ -79,7 +80,7 @@ public class ContactController {
     public ResponseEntity<Object> updateContact(@PathVariable(value = "id") Long idContact,
             @RequestBody ContactDto contactDto) {
         Optional<Contact> contactOptional = contactService.findById(idContact);
-        if (!contactOptional.isPresent()) {
+        if (contactOptional.isEmpty()) {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Contato não encontrado.");
         }
         var contact = contactOptional.get();
@@ -91,5 +92,4 @@ public class ContactController {
         return ResponseEntity.status(HttpStatus.OK).body(contactService.save(contact));
 
     }
-
 }

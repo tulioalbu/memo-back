@@ -77,13 +77,20 @@
   display: flex;
   flex-direction: column;
   align-self: center;
-  background-color: white;
+  background-image: url('path/to/image.jpg');
   border-radius: 15px;
   margin-top: 70px;
   padding-block: 33px;
   padding-inline: 35px;
   box-shadow: 0 0 20px 0 rgba(0, 0, 0, 0.2);
   border: 3px solid black;
+
+}
+.bg {
+
+background-image: url("./assets/FUNDO2.png");
+background-repeat: cover;
+z-index: 1;
 }
 #inputs {
   letter-spacing: 1px;
