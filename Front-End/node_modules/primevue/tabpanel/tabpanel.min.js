@@ -1,1 +1,0 @@
-this.primevue=this.primevue||{},this.primevue.tabpanel=function(e){"use strict";var l={name:"TabPanel",props:{header:null,headerStyle:null,headerClass:null,headerProps:null,headerActionProps:null,contentStyle:null,contentClass:null,contentProps:null,disabled:Boolean}};return l.render=function(l,n,r,t,u,a){return e.renderSlot(l.$slots,"default")},l}(Vue);
