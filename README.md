@@ -8,9 +8,9 @@
 <p float="left">
 <img src="https://tulioalbu.github.io/memo-back/images/image2.png" width = "540">
 
-Memo é uma aplicação web que emula uma agenda digital. Através de sua interface gráfica é possível criar contatos, salvando nome, e-mail, telefone e escolhendo um avatar para representá-lo. Também existe a possibilidade de atualizar e deletar esses contatos a qualquer momento. O projeto foi criado em Java e Spring Boot no Back-End e VueJs no Front-end. 
+Memo é uma aplicação web que emula uma agenda digital. Através de sua interface gráfica é possível criar contatos salvando nome, e-mail, telefone e escolhendo um avatar para representá-lo. Também existe a possibilidade de atualizar e deletar esses contatos a qualquer momento. O projeto foi criado em Java e Spring Boot no Back-End e VueJs no Front-end. 
 
-Para utilizar, clone o repositório do projeto, instale o JDK (17 ou maior), rode npm install na pasta do front-end e rode o back-end através de sua IDE. A interface gráfica poderá ser acessada no http://localhost:3333 e o back-end responde no http://localhost:8080. Há dockerfiles tanto no back como no front pra facilitar a utilização do app.
+Para utilizar, clone os repositórios do projeto, rode "npm install"  e "npm run dev" na pasta de front-end. Há um dockerfile no back-end pra facilitar a utilização da aplicação. Rode ambos os projetos através de sua IDE. A interface gráfica poderá ser acessada no http://localhost:3333 e o back-end responde no http://localhost:8080. 
 
 Acesse os repositórios do projeto no Github:
 Back-end: https://github.com/tulioalbu/memo-back
@@ -21,7 +21,7 @@ Front-end: https://github.com/tulioalbu/memo-front
 <p float="left">
 <img src="https://tulioalbu.github.io/memo-back/images/image3.png" width = "540">
 
-No Front-End, além da trinca tradicional de desenvolvimento web (Html, Css e JavaScript), utilizei o VueJs como framework, tendo o apoio das bibliotecas do Prime Vue e do Prime Icon. O Vite ajudou na criação do template e organização do projeto e o axios para as requisições http;
+No Front-End, além da trinca tradicional de desenvolvimento web (Html, Css e JavaScript), utilizei o VueJs como framework, tendo o apoio das bibliotecas do Prime Vue e do Prime Icon. O Vite ajudou na criação do template e organização do projeto e o axios auxiliou nas requisições HTTP;
 
 No back-end, a linguagem utilizada foi Java e o Spring Boot foi o framework escolhido, tendo bibliotecas como Lombok, Spring Data JPA, Spring Remote e Spring Web auxiliando na criação da API Rest;
 
@@ -77,7 +77,7 @@ Ao salvar no banco de dados, a aplicação retorna um ID gerado automaticamente 
 <p float="left">
 <img src="https://tulioalbu.github.io/memo-back/images/image8.png" width = "540">
 
-O banco de dados MySQL está hospedado no Railway, um serviço de nuvem equivalente ao Heroku. Lá é possível acompanhar toda a movimentação feita na aplicação através da tabela tb_contact. Independente de onde a API seja bootada, o banco de dados persistirá as informações, fazendo update sempre houver nova inserção. Também fiz deploy de uma build utilizando o dockerfile para testes. 
+O banco de dados MySQL está hospedado no Railway, um serviço de nuvem equivalente ao Heroku. Lá é possível acompanhar toda a movimentação feita na aplicação através da tabela tb_contact. Independente de onde a API seja bootada, o banco de dados persistirá as informações, fazendo update sempre que houver nova inserção. Também fiz deploy de uma build utilizando o dockerfile para testes. 
 
 ### Ideação e Prototipação visual:
 
@@ -118,7 +118,7 @@ O Elemento 1 é o Header, com função apenas estética;
 
 O Elemento 2 (FormUser) tem os inputTexts de Nome, Telefone e Email, um dropdown que permite escolher entre 14 avatares distintos, além do button de adicionar. Todo esse layout foi feito com módulos do PrimeVue;
 
-O Elemento 3 é uma lista infinita com barra de rolagem que recebe inúmeros cards. Neles há os botões de edit e delete e as informações salvas a partir do POST, incluindo o avatar;
+O Elemento 3 é uma lista infinita com barra de rolagem que recebe inúmeros cards. Neles estão os botões de edit e delete e as informações salvas a partir do POST, incluindo o avatar;
 
 Todos os ícones são da biblioteca PrimeIcon.
 
@@ -134,7 +134,7 @@ Ao clicar no botão de edit presente no card, é aberto um form de update. O con
 <p float="left">
 <img src="https://tulioalbu.github.io/memo-back/images/image13.png" width = "540">
 
-Determinadas ações do usuário geram toasts na tela. São três mensagens de sucesso: uma de contato adicionado, outra de contato modificado e outra de contato deletado. Também há um toast de confirmação quando o usuário quiser deletar um contato e mais quatro mensagens de conflito registradas na API, não permitindo que o usuário salve contatos com informações iguais.
+Determinadas ações do usuário geram toasts na tela. São três mensagens de sucesso: uma de contato adicionado, outra de contato modificado e outra de contato deletado. Também há um toast de confirmação quando o usuário quiser deletar um contato. Também temos mais quatro mensagens de conflito registradas na API, não permitindo que o usuário salve contatos com informações iguais.
 
 
 
