@@ -6,7 +6,7 @@
 ### Apresentação
 
 <p float="left">
-<img src="https://tulioalbu.github.io/memo-back/images/image02.png" width = "540">
+<img src="https://tulioalbu.github.io/memo-back/images/image2.png" width = "540">
 
 Memo é uma aplicação web que emula uma agenda digital. Através de sua interface gráfica é possível criar contatos, salvando nome, e-mail, telefone e escolhendo um avatar para representá-lo. Também existe a possibilidade de atualizar e deletar esses contatos a qualquer momento. O projeto foi criado em Java e Spring Boot no Back-End e VueJs no Front-end. 
 
